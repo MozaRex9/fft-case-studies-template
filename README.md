@@ -1,3 +1,98 @@
+# Bagaimana Cara Agar Akun Kalian Muncul sebagai Kontributor?
+
+Misalkan satu kelompok terdiri dari tiga mahasiswa: A, B dan C. Mahasiswa A berperan melakukan fork pada Repository yang sudah saya siapkan ini. Kemudian mahasiswa B dan C melakukan fork pada Repository mahasiswa A tersebut. 
+
+## Langkah yang dilakukan oleh mahasiswa B dan C 
+---
+
+### Bagian 0: Melakukan *Fork* Repositori (Di Situs Web GitHub)
+
+1. **Buka Halaman Repositori Mahasiswa A:** Akses proyek sumber.
+Mahasiswa B harus masuk (*log in*) ke akun GitHub mereka, kemudian membuka tautan repositori milik Mahasiswa A yang ingin disalin.
+*(Pastikan di pojok kiri atas halaman web tertulis `NamaAkunMahasiswaA / nama-repositori`)*.
+
+
+2. **Klik Tombol Fork:** Inisiasi penyalinan.
+Perhatikan pojok kanan atas halaman repositori tersebut. Di sebelah tombol *Star*, terdapat tombol bertuliskan **Fork**. Klik tombol **Fork** tersebut.
+
+
+3. **Atur Opsi dan Buat Fork:** Konfirmasi kepemilikan.
+GitHub akan mengarahkan Mahasiswa B ke halaman konfigurasi singkat (*Create a new fork*):
+
+* **Owner:** Pastikan bagian ini otomatis terisi dengan nama akun GitHub milik Mahasiswa B sendiri.
+* **Repository name:** Biarkan nama repositori tetap sama agar memudahkan pelacakan tugas.
+* **Copy the main branch only:** Pastikan opsi ini dalam kondisi **tercentang** (secara default sudah tercentang).
+
+Setelah itu, klik tombol hijau bertuliskan **Create fork** di bagian bawah.
+
+
+---
+
+> **Tanda Keberhasilan:**
+> GitHub akan memproses penyalinan selama beberapa detik. Setelah selesai, halaman web akan otomatis dialihkan ke repositori baru. Mahasiswa B kini resmi memiliki ruang kerja sendiri jika di pojok kiri atas halaman telah berubah menjadi:
+> `NamaAkunMahasiswaB / nama-repositori`
+> *(disertai keterangan kecil di bawahnya: forked from NamaAkunMahasiswaA/nama-repositori)*.
+
+Lanjutkan ke **Bagian 1**, yaitu memodifikasi file.
+
+Jika Mahasiswa B menggunakan GitHub berbasis web secara penuh (tanpa menggunakan terminal di laptop), maka proses modifikasi file dilakukan langsung melalui peramban (*browser*).
+
+Berikut adalah langkah-langkah terstruktur yang perlu dilakukan oleh Mahasiswa B di situs web GitHub sebelum mengajukan *Pull Request*:
+
+---
+
+### Bagian 1: Memodifikasi File dan Menyimpan Perubahan (Di Situs Web GitHub)
+
+Mahasiswa B harus memperbarui isi repositori hasil *fork*-nya terlebih dahulu agar memiliki perbedaan materi yang akan diajukan ke Mahasiswa A.
+
+1. **Buka Repositori Hasil Fork:** Navigasi ke proyek.
+Mahasiswa B masuk ke akun GitHub miliknya, lalu membuka repositori yang merupakan hasil *fork* dari Mahasiswa A (pastikan nama repositori di pojok kiri atas tertulis `NamaAkunMahasiswaB/nama-repositori`).
+
+
+2. **Edit atau Tambah File Baru:** Modifikasi materi.
+* **Jika mengedit file yang sudah ada:** Klik pada file yang ingin diubah, lalu klik ikon **pensil (Edit this file)** di pojok kanan atas area teks.
+* **Jika menambah file baru:** Klik tombol **Add file** di bagian kanan atas struktur direktori, lalu pilih **Create new file** (atau **Upload files** jika ingin mengunggah file dari komputer).
+
+
+3. **Lakukan Commit Changes:** Menyimpan perubahan.
+Setelah selesai menulis atau mengubah kode/teks, klik tombol **Commit changes...** di pojok kanan atas.
+
+* Isi kotak **Commit message** dengan deskripsi singkat mengenai perubahan yang dilakukan (misalnya: *“Menyelesaikan tugas kalkulasi modul 2”*).
+* Pastikan opsi yang terpilih adalah **Commit directly to the main branch**.
+* Klik tombol **Commit changes** yang berwarna hijau.
+
+
+
+---
+
+Setelah Mahasiswa B menyelesaikan langkah **Commit changes** di atas, perubahan tersebut telah resmi tersimpan di akun GitHub miliknya secara daring. Langkah berikutnya bagi Mahasiswa B adalah melanjutkan ke proses **"4. Ajukan Pull Request"** seperti yang telah dijelaskan sebelumnya.
+
+
+**4. Ajukan *Pull Request* (Di Situs Web GitHub)**
+
+Sekarang, Mahasiswa B harus meminta secara eksplisit kepada Mahasiswa A untuk menerima hasil pekerjaannya:
+
+* Mahasiswa B membuka halaman repositori miliknya sendiri di situs web GitHub.
+* Mereka akan melihat *banner* di bagian atas yang menampilkan perubahan terbaru mereka. Kemudian, mereka mengklik tombol **Compare & pull request** yang berwarna hijau.
+* Mereka memastikan bahwa *base repository* telah mengarah ke repositori milik Mahasiswa A, menulis catatan yang menjelaskan pengajuan mereka, lalu mengklik **Create pull request**.
+
+**Bagian 2: Apa yang Harus Dilakukan oleh Mahasiswa A (Di Situs Web GitHub)**
+
+Pada saat ini, Mahasiswa B masih belum menjadi kontributor. Otoritas penuh kini beralih sepenuhnya kepada Mahasiswa A.
+
+* Mahasiswa A membuka halaman repositorinya di GitHub dan mengklik tab **Pull requests**.
+* Mereka mengklik *pull request* yang diajukan oleh Mahasiswa B untuk meninjau perubahan kode tersebut.
+* Jika pekerjaan tersebut dinilai sudah baik, Mahasiswa A mengklik tombol **Merge pull request** yang berwarna hijau dan melakukan konfirmasi.
+
+**Hasil Akhir 🎉**
+
+Tepat pada saat Mahasiswa A mengklik tombol *Merge* tersebut, dua hal akan terjadi secara otomatis:
+
+1. Kode dari Mahasiswa B langsung terintegrasi ke dalam riwayat proyek Mahasiswa A.
+2. Profil Mahasiswa B secara otomatis muncul pada daftar "Contributors" di sisi kanan halaman utama repositori Mahasiswa A.
+
+---
+
 # Computational Physics: Applied Fast Fourier Transform (FFT)
 
 Welcome to the comprehensive case study assignment on the Discrete Fourier Transform. In this assignment, you will apply the FFT algorithm to three distinct physical datasets to extract meaningful frequency-domain information.
