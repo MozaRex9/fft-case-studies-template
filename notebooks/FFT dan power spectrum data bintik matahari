@@ -1,0 +1,108 @@
+# ============================================
+# FFT DAN POWER SPECTRUM DATA BINTIK MATAHARI
+# ============================================
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# ------------------------------------------------
+# 1. BACA FILE CSV
+# ------------------------------------------------
+# Ganti nama kolom sesuai file Anda
+!wget -O sunspots.csv https://raw.githubusercontent.com/MozaRex9/fft-case-studies-template/main/data/sunspots.csv
+data = pd.read_csv('sunspots.csv')
+
+print(data.head())
+
+# ------------------------------------------------
+# 2. AMBIL DATA JUMLAH BINTIK MATAHARI
+# ------------------------------------------------
+# Misalnya nama kolomnya 'Sunspots'
+# Jika berbeda, ubah sesuai nama kolom file CSV
+
+sunspot = data['Monthly Mean Total Sunspot Number'].values
+
+# ------------------------------------------------
+# 3. HILANGKAN NILAI RATA-RATA (DETREND)
+# ------------------------------------------------
+sunspot_detrend = sunspot - np.mean(sunspot)
+
+# ------------------------------------------------
+# 4. PARAMETER DATA
+# ------------------------------------------------
+N = len(sunspot_detrend)
+
+# Interval waktu
+# Karena data bulanan:
+dt = 1  # bulan
+
+# ------------------------------------------------
+# 5. HITUNG FFT
+# ------------------------------------------------
+fft_result = np.fft.fft(sunspot_detrend)
+
+# Frekuensi
+freq = np.fft.fftfreq(N, d=dt)
+
+# ------------------------------------------------
+# 6. HITUNG POWER SPECTRUM
+# ------------------------------------------------
+power = np.abs(fft_result)**2
+
+# ------------------------------------------------
+# 7. AMBIL FREKUENSI POSITIF SAJA
+# ------------------------------------------------
+positive = freq > 0
+
+freq_positive = freq[positive]
+power_positive = power[positive]
+
+# ------------------------------------------------
+# 8. CARI FREKUENSI DOMINAN
+# ------------------------------------------------
+index_max = np.argmax(power_positive)
+
+dominant_frequency = freq_positive[index_max]
+
+dominant_period_month = 1 / dominant_frequency
+dominant_period_year = dominant_period_month / 12
+
+# ------------------------------------------------
+# 9. TAMPILKAN HASIL
+# ------------------------------------------------
+print("===================================")
+print("HASIL ANALISIS FFT")
+print("===================================")
+
+print(f"Frekuensi Dominan : {dominant_frequency:.6f} per bulan")
+print(f"Periode Dominan   : {dominant_period_month:.2f} bulan")
+print(f"Periode Dominan   : {dominant_period_year:.2f} tahun")
+
+# ------------------------------------------------
+# 10. PLOT DATA ASLI
+# ------------------------------------------------
+plt.figure(figsize=(12,5))
+
+plt.plot(sunspot)
+
+plt.title("Data Jumlah Bintik Matahari")
+plt.xlabel("Waktu (bulan)")
+plt.ylabel("Jumlah Bintik Matahari")
+
+plt.grid(True)
+plt.show()
+
+# ------------------------------------------------
+# 11. PLOT FFT / POWER SPECTRUM
+# ------------------------------------------------
+plt.figure(figsize=(12,5))
+
+plt.plot(freq_positive, power_positive)
+
+plt.title("Power Spectrum FFT")
+plt.xlabel("Frekuensi (per bulan)")
+plt.ylabel("Power")
+
+plt.grid(True)
+plt.show()
